@@ -15,9 +15,16 @@ def test():
 
     req = requests.get("http://jwxt.bupt.edu.cn/xtcxAction.do?totalrows=186&page=1&pageSize=186",cookies=cookie)
 
-    f = open("./1.html","w")
+    f = open("./index.html","a+")
     f.write(req.text)
     f.close()
+
+    # html = BeautifulSoup(str(req.content,"GBK"), "lxml")
+    # #print(html.prettify())
+    # doc = html.select("html body form#search table.titleTop2 tbody tr td.pageAlign table#user.displayTag tbody tr.odd")
+    # print(doc)
+    # for i in html.select("table.titleTop2:nth-child(12) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table:nth-child(1) > tbody:nth-child(2)"):
+    #     print(i)
 
 if __name__ == "__main__":
     test()
